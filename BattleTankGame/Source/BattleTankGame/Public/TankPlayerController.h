@@ -21,14 +21,15 @@ public:
 
 	void AimTowardsCrosshair();
 
-	FVector GetSightRayHitLocation();
-
-	FVector GetReachLineEnd();
-	FVector GetReachLineStart();
-
 	UPROPERTY(EditAnywhere)
 	float Reach = 10000.0f;
 
 	// return OUT parameter, true if hit landscape
+private:
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+	bool GetLookDirection(FVector2D & ScreenLocation, FVector & LookDirection) const;
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5;
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.33333;
 };
