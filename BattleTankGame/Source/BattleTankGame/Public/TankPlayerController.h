@@ -6,9 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 {
@@ -18,4 +16,19 @@ public:
 	ATank* GetControlledTank() const;
 
 	void BeginPlay() override;
+
+	virtual void Tick(float DeltaTime) override;
+
+	void AimTowardsCrosshair();
+
+	FVector GetSightRayHitLocation();
+
+	FVector GetReachLineEnd();
+	FVector GetReachLineStart();
+
+	UPROPERTY(EditAnywhere)
+	float Reach = 10000.0f;
+
+	// return OUT parameter, true if hit landscape
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 };
