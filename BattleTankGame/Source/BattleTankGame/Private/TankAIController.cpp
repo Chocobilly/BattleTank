@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "../Public/TankAIController.h"
+#include "Engine/World.h"
 #include "GameFramework/Actor.h"
 
 
@@ -15,6 +16,22 @@ void ATankAIController::BeginPlay()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Player Controller possessing: %s"), *PlayerTank->GetName());
+	}
+}
+
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	FVector HitLocation;
+	if (GetPlayerTank()) // Has "side-effect", is going to line trace
+	{
+		// TODO Move toward player tank
+
+		// Aim towards player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+
+		// TODO fire if ready
 	}
 }
 
