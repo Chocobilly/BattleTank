@@ -2,8 +2,7 @@
 
 #include "../Public/TankPlayerController.h"
 #include "Engine/World.h"
-#include "DrawDebugHelpers.h"
-
+#include "../Public/Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {

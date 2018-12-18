@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Components/StaticMeshComponent.h"
-#include "../Public/TankAimingComponent.h"
 #include "Tank.generated.h"
 
+// Forward declarations
 class UTankBarrel;
+class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANKGAME_API ATank : public APawn
@@ -30,8 +30,7 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-	// Called to bind functionality to input
+
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
