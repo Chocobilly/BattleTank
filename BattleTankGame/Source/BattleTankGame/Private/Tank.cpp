@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "../Public/Tank.h"
+#include "Engine/World.h"
 #include "../Public/TankAimingComponent.h"
 
 // Sets default values
@@ -39,4 +40,10 @@ void ATank::SetTurretReference(UTankTurret * TurretToSet)
 void ATank::AimAt(FVector HitLocation)
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
+}
+
+void ATank::Fire()
+{
+	float Time = GetWorld()->TimeSeconds;
+	UE_LOG(LogTemp, Warning, TEXT("%f - Boom!"), Time)
 }
