@@ -24,6 +24,7 @@ void ATankAIController::Tick(float DeltaTime)
 	if (PlayerTank) // Has "side-effect", is going to line trace
 	{
 		// TODO Move toward player tank
+		MoveToActor(PlayerTank, AcceptanceRadius);
 
 		// Aim towards player
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
