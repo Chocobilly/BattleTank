@@ -13,8 +13,6 @@ class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 
 private:
-	ATank* GetControlledTank() const;
-
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
@@ -32,4 +30,8 @@ private:
 	float CrosshairXLocation = 0.5;
 	UPROPERTY(EditDefaultsOnly)
 	float CrosshairYLocation = 0.33333;
+
+protected:
+	UFUNCTION(BluePrintCallable, Category = Setup)
+	ATank* GetControlledTank() const;
 };

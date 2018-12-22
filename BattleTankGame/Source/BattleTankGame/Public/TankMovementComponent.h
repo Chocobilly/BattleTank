@@ -28,11 +28,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void IntendTurnLeft(float Throw);
 
-	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
-
 private:
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;
 	
+	// Call from pathfinding logic by the AI controllers
+	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 
 };
