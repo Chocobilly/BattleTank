@@ -22,12 +22,6 @@ public:
 	// Sets default values for this pawn's properties
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BluePrintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BluePrintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
-
 	UFUNCTION(BluePrintCallable, Category = InGameActions)
 	void Fire();
 
@@ -41,8 +35,6 @@ protected:
 private:
 	ATank();
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-	// Called every frame
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -55,7 +47,7 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;
 
-	UTankBarrel* Barrel = nullptr;
+	UTankBarrel* Barrel = nullptr; //TODO Remove
 
 	double LastFireTime = 0;
 };
